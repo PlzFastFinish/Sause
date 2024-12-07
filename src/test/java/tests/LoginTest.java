@@ -26,7 +26,7 @@ public class LoginTest extends BaseTest {
         assertEquals("Products", productsPage.getTitle());
     }
 
-    @DataProvider(name = "blabla")
+    @DataProvider(name = "logWrongData")
     public Object[][] loginData() {
         return new Object[][]{
                 {"locked_out_user", password, "Epic sadface: Sorry, this user has been locked out."},
@@ -35,7 +35,7 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "blabla")
+    @Test(dataProvider = "logWrongData")
     public void loginWrongData(String user, String pass, String errorMsg) {
         loginPage.open();
         loginPage.login(user, pass);
