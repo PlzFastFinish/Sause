@@ -29,7 +29,6 @@ public class BaseTest {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
-            //options.addArguments("headless");
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("edge")) {
             driver = new EdgeDriver();
@@ -47,9 +46,6 @@ public class BaseTest {
     @AfterMethod
     @Description("Закрытие")
     public void close(ITestResult result) {
-      /*  if (ITestResult.FAILURE == result.getStatus()) {
-            AllureUtils.takeScreenshot(driver);
-        }*/
         driver.quit();
     }
 }
